@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f44336; /* Czerwona */
+    padding: 20px;
+    color: white;
+}
+
+.filters h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.filters form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filters label, .filters input, .filters select, .filters output {
+    margin-bottom: 10px;
+}
+
+.filters button {
+    padding: 10px;
+    background-color: white;
+    color: #f44336;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.filters button:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.results {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+}
+
+.result-item {
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.result-item h3 {
+    margin: 0 0 5px 0;
+}
+
+
+input[type=range] {
+    
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity .15s ease-in-out;
+}
+
+input[type=range]:hover {
+    opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #fce5e3; 
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #fce5e3; 
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacja Paliw</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="orlen.png" alt="Zdjęcie stacji" />
+            </div>
+            <div class="filters">
+                <h2>Dostępne filtry</h2>
+              
+
+                <label for="miasto">Miasto:</label>
+                <select id="miasto" name="miasto">
+                    <option value="">Wybierz miasto</option>
+                    <option value="Warszawa">Warszawa</option>
+                    <option value="Kraków">Kraków</option>
+                    <option value="Gdańsk">Gdańsk</option>
+                </select><br><br>
+
+                <label for="cena-od">Cena za litr od:</label>
+                <input type="range" id="cena-od" name="cena-od" min="1.00" max="10.00" step="0.01" value="1.00" oninput="updateValue('cena-od-value', this.value)">
+                <span id="cena-od-value">1.00 zł</span><br><br>
+
+                <label for="cena-do">Cena za litr do:</label>
+                <input type="range" id="cena-do" name="cena-do" min="1.00" max="10.00" step="0.01" value="9.99" oninput="updateValue('cena-do-value', this.value)">
+                <span id="cena-do-value">9.99 zł</span><br><br>
+
+                <button type="submit" id="szukaj-btn">Szukaj</button>
+                <button type="reset" id="reset-btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="results">
+            <h2>Tutaj mają wyświetlać się wyniki wyszukiwania</h2>
+        </div>
+    </div>
+
+    <script>
+        function updateValue(id, value) {
+            document.getElementById(id).textContent = value + ' zł';
+        }
+    </script>
+</body>
+</html>

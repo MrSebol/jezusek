@@ -1,0 +1,41 @@
+CREATE TABLE adresy (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,  
+    miasto VARCHAR(50) NOT NULL,           
+    ulica VARCHAR(50) NOT NULL,            
+    numer INT NOT NULL                     
+)
+CREATE TABLE stacje_paliw (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,  
+    nazwa VARCHAR(50) NOT NULL,            
+    adres BIGINT NOT NULL,                 
+    cena_paliwa DECIMAL(10, 2) NOT NULL,   
+    FOREIGN KEY (adres) REFERENCES adresy(id) ON DELETE CASCADE 
+);
+
+INSERT INTO adresy (miasto, ulica, numer)
+VALUES ('Warszawa', 'Marszałkowska', 123);
+
+INSERT INTO stacje_paliw (nazwa, adres, cena_paliwa)
+VALUES ('Stacja Orlen', 1, 5.99);
+
+UPDATE stacje_paliw
+SET nazwa = 'Stacja BP'
+WHERE id = 1;
+
+SELECT s.nazwa, s.cena_paliwa, a.miasto, a.ulica, a.numer
+FROM stacje_paliw s
+JOIN adresy a ON s.adres = a.id;
+
+DELETE FROM stacje_paliw
+WHERE id = 1;
+
+SELECT s.nazwa, s.cena_paliwa, a.miasto, a.ulica, a.numer
+FROM stacje_paliw s
+JOIN adresy a ON s.adres = a.id
+WHERE a.miasto = 'Warszawa';
+
+SELECT s.nazwa, s.cena_paliwa, a.miasto, a.ulica, a.numer
+FROM stacje_paliw s
+JOIN adresy a ON s.adres = a.id
+WHERE s.cena_paliwa BETWEEN 1.25 AND 6.50;
+
